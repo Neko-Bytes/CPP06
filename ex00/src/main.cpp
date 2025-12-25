@@ -15,9 +15,7 @@
 #include <cstdlib>
 
 void run_test(const std::string &literal) {
-  std::cout << "\n===============================" << std::endl;
-  std::cout << "Testing input: \"" << literal << "\"" << std::endl;
-  std::cout << "===============================" << std::endl;
+  section("Testing input: \"" + literal + "\"");
   ScalarConverter::convert(literal);
 }
 
@@ -29,33 +27,33 @@ int main(int argc, char **argv) {
 
   colorprint("No command line argument provided. Running default tests.", RED);
 
-  // --- Char Literal Examples ---
+  // Char Literal Examples
   run_test("a");
   run_test("!");
 
-  // --- Int Literal Examples ---
+  // Int Literal Examples
   run_test("0");
   run_test("42");
   run_test("-42");
 
-  // --- Float Literal Examples ---
+  // Float Literal Examples
   run_test("0.0f");
   run_test("4.2f");
   run_test("-4.2f");
   run_test("12345.0f");
 
-  // --- Double Literal Examples ---
+  // Double Literal Examples
   run_test("0.0");
   run_test("4.2");
   run_test("-4.2");
 
-  // --- Pseudo-Literal Examples ---
+  // Pseudo-Literal Examples
   run_test("nan");
   run_test("+inf");
   run_test("-inff");
   run_test("nanf");
 
-  // --- Boundary and Edge Cases ---
+  // Boundary and Edge Cases
 
   // ASCII 7 (Non-displayable char value)
   run_test("7");
